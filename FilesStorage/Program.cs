@@ -60,14 +60,16 @@ app.MapPut("/api/users", (Person userData) =>
 
     if (user == null) return Results.NotFound(new { message = "Пользователь не найден" });
 
+    user.Age = userData.Age;
+    user.Name = userData.Name;
     return Results.Json(user);
 });
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
-app.MapControllers();
+//app.MapControllers();
 
 app.Run();
 
